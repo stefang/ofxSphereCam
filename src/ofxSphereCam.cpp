@@ -77,4 +77,14 @@ void ofxSphereCam::axis() {
 }
 
 void ofxSphereCam::randomPos() {
+    azimuthTarget = ofRandom(-85,85);
+    zenithTarget = ofRandom(0,360);
+    radiusTarget = ofRandom(400)+500;
+    targTarget = ofRandom(1,10);
+    setSpeed((int) ofRandom(32,64));
+
+}
+
+void ofxSphereCam::setSpeed(int s) {
+    speed = s;
 }

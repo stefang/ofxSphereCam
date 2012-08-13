@@ -21,25 +21,26 @@ public:
     void end();
     void axis();
     void randomPos();
+    void setSpeed(int speed);
     
-    bool handheld;
-    
-    float azimuth;
     float azimuthTarget;
-
-    float zenith;
     float zenithTarget;
-
-    float radius;
     float radiusTarget;
+    ofVec3f targTarget;
+
+    
+private:
+    float zenith;
+    float azimuth;
+    float radius;
+    float speed;
+    bool handheld;
     
     ofVec3f pos;
     ofVec3f targ;
-    ofVec3f targTarget;
     ofVec3f handNoise;
     
     float noiseScale;   
-    float speed;
     int frameCount;
     
     ofCamera camera;

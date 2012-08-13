@@ -81,11 +81,8 @@ void testApp::mouseDragged(int x, int y, int button){
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
-    sCam.azimuthTarget = ofRandom(-85,85);
-    sCam.zenithTarget = ofRandom(0,360);
-    sCam.radiusTarget = ofRandom(400)+500;
-    sCam.targTarget = ofRandom(1,10);
+void testApp::mousePressed(int x, int y, int button){    
+    sCam.randomPos();
 }
 
 //--------------------------------------------------------------
