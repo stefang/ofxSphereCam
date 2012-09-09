@@ -11,14 +11,12 @@
 
 #include "ofMain.h"
 
-class ofxSphereCam {
+class ofxSphereCam : public ofCamera {
 public:
 	
 	ofxSphereCam();	
 
     void update();
-    void begin();
-    void end();
     void axis();
     void randomPos();
     void setSpeed(int speed);
@@ -42,7 +40,5 @@ private:
     
     float noiseScale;   
     int frameCount;
-    
-    ofCamera camera;
-    
+        
 };

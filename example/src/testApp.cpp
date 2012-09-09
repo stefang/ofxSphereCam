@@ -25,7 +25,6 @@ void testApp::update(){
 void testApp::draw(){
     ofBackground(0);
     sCam.begin();
-    sCam.axis();
     
     for(int i = 0; i < boxCount; i++) {
 		ofPushMatrix();
@@ -54,8 +53,6 @@ void testApp::draw(){
 		
 		ofPopMatrix();
 	}
-
-    
     
     sCam.end();
 }

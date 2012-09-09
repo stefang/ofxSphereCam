@@ -54,17 +54,9 @@ void ofxSphereCam::update() {
         targ = targ + handNoise;
     }
     
-    camera.setPosition(pos);
-    camera.lookAt(targ);
+    setPosition(pos);
+    lookAt(targ);
 
-}
-
-void ofxSphereCam::begin() {
-    camera.begin();
-}
-
-void ofxSphereCam::end() {
-    camera.end();
 }
 
 void ofxSphereCam::axis() {
