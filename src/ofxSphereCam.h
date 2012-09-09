@@ -13,32 +13,34 @@
 
 class ofxSphereCam : public ofCamera {
 public:
-	
-	ofxSphereCam();	
+    
+	ofxSphereCam();
 
     void update();
-    void axis();
-    void randomPos();
     void setSpeed(int speed);
     
-    float azimuthTarget;
-    float zenithTarget;
-    float radiusTarget;
-    ofVec3f targTarget;
-
+    void moveTo(ofVec3f t);
+    void sphereTo(ofVec3f t);
+    void lookAtTo(ofVec3f t);
     
-private:
-    float zenith;
-    float azimuth;
-    float radius;
-    float speed;
+    void randomPos();
+    
     bool handheld;
+
+    void axis();
+        
+private:
     
-    ofVec3f pos;
-    ofVec3f targ;
-    ofVec3f handNoise;
-    
+    float speed;
     float noiseScale;   
-    int frameCount;
+
+    ofVec3f posCartesian;
+    ofVec3f posSpherical;
+    
+    ofVec3f targCartesian;
+    ofVec3f targSpherical;
+    
+    ofVec3f targLookAt;
+    ofVec3f handNoise;
         
 };
