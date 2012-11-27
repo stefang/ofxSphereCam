@@ -28,5 +28,7 @@ class testApp : public ofBaseApp{
         float maxBoxSize;
         float spacing;
         int boxCount;
+    
+        ofCamera monitor;
 
 };

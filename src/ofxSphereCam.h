@@ -11,36 +11,41 @@
 
 #include "ofMain.h"
 
+#include "ofxTween.h"
+
 class ofxSphereCam : public ofCamera {
 public:
     
 	ofxSphereCam();
 
     void update();
-    void setSpeed(int speed);
     
-    void moveTo(ofVec3f t);
-    void sphereTo(ofVec3f t);
-    void lookAtTo(ofVec3f t);
-    
-    void randomPos();
+    void moveTo(ofVec3f& t, float d);
+    void sphereTo(ofVec3f& t, float d);
+    void lookAtTo(ofVec3f& t, float d);
+
+    ofVec3f lookedAt;
     
     bool handheld;
-
+    float handNoiseAmt;
+    
+    void randomPosM();
+    void randomPosS();
     void axis();
-        
+            
 private:
     
-    float speed;
-    float noiseScale;   
-
-    ofVec3f posCartesian;
-    ofVec3f posSpherical;
+    ofxTween posTween;
+    ofxTween lookAtTween;
+    ofxEasingQuad easingquad;
     
-    ofVec3f targCartesian;
-    ofVec3f targSpherical;
+    float noiseCount;
+    float noiseSpeed;
     
-    ofVec3f targLookAt;
-    ofVec3f handNoise;
-        
+    bool spherical;
+    
+    float radius;
+    float phi;
+    float theta;
+    
 };

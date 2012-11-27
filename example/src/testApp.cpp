@@ -1,9 +1,12 @@
 #include "testApp.h"
 
+// Press M to linear move the position and lookat
+// Press S to rotate around current lookat
+
 //--------------------------------------------------------------
 void testApp::setup(){
     ofSetVerticalSync(true);
-    ofSetFrameRate(60);
+    ofSetFrameRate(50);
     glEnable(GL_DEPTH_TEST);
     
     // Boxes Stuff
@@ -13,7 +16,9 @@ void testApp::setup(){
 	maxBoxSize = 50;
 	spacing = 2;
 	boxCount = 50;
-
+    
+    monitor.setPosition(400, -800, -1000);
+    monitor.lookAt(ofVec3f(0,0,0));
 }
 
 
@@ -25,12 +30,13 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     ofBackground(0);
+//    monitor.begin();
     sCam.begin();
     
     for(int i = 0; i < boxCount; i++) {
 		ofPushMatrix();
 		
-		float t = (ofGetElapsedTimef() + i * spacing) * movementSpeed;
+		float t = (i * spacing) * movementSpeed;
 		ofVec3f pos(
                     ofSignedNoise(t, 0, 0),
                     ofSignedNoise(0, t, 0),
@@ -49,17 +55,40 @@ void testApp::draw(){
 		ofBox(boxSize);
 		
 		ofNoFill();
-		ofSetColor(ofColor::fromHsb(sinf(t) * 128 + 128, 255, 255));
+		ofSetColor(ofColor::fromHsb(sinf(t) * 128 + 128, 255, 255, 50));
 		ofBox(boxSize * 1.1f);
 		
 		ofPopMatrix();
 	}
     
+    sCam.axis();
+    
+    ofPushMatrix();
+    ofSetColor(ofColor::fromHsb(0, 0, 255));
+    ofTranslate(sCam.lookedAt);
+    ofBox(0, 0, 0, 20);
+    ofPopMatrix();
+
+//    ofPushMatrix();
+//    ofSetColor(ofColor::fromHsb(0, 100, 255));
+//    ofTranslate(sCam.getPosition());
+//    ofBox(0, 0, 0, 20);
+//    ofPopMatrix();
+
+//    monitor.end();
     sCam.end();
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+    switch (key) {
+        case 's':
+            sCam.randomPosS();
+            break;
+        case 'm':
+            sCam.randomPosM();
+            break;
+    }
 
 }
 
@@ -79,8 +108,8 @@ void testApp::mouseDragged(int x, int y, int button){
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){    
-    sCam.randomPos();
+void testApp::mousePressed(int x, int y, int button){
+    
 }
 
 //--------------------------------------------------------------
