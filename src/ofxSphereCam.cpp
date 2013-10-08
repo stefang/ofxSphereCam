@@ -1,3 +1,11 @@
+/*
+ *  ofxSphereCam.h
+ *
+ *  Created by Stefan Goodchild on 13-08-12.
+ *  Copyright 2012/13 Triple Geek Ltd. All rights reserved.
+ *
+ */
+
 #include "ofxSphereCam.h"
 
 ofxSphereCam::ofxSphereCam() {
@@ -108,13 +116,27 @@ void ofxSphereCam::update() {
 
 }
 
-void ofxSphereCam::axis() {
+void ofxSphereCam::drawAxis() {
+    ofPushStyle();
     ofSetColor(255,0,0);
     ofLine(-50,0,0,50,0,0);
     ofSetColor(0,255,0);
     ofLine(0,-50,0,0,50,0);
     ofSetColor(0,0,255);
     ofLine(0,0,-50,0,0,50);
+    ofPopStyle();
+}
+
+void ofxSphereCam::drawTarget() {
+    ofPushMatrix();
+    ofTranslate(lookedAt);
+    ofPushStyle();
+    ofSetColor(255,255,255);
+    ofLine(-50,0,0,50,0,0);
+    ofLine(0,-50,0,0,50,0);
+    ofLine(0,0,-50,0,0,50);
+    ofPopStyle();
+    ofPopMatrix();
 }
 
 void ofxSphereCam::randomPosM() {

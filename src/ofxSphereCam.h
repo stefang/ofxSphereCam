@@ -1,17 +1,16 @@
 /*
  *  ofxSphereCam.h
- *  arcballExample
  *
  *  Created by Stefan Goodchild on 13-08-12.
- *  Copyright 2012 Triple Geek Ltd. All rights reserved.
+ *  Copyright 2012/13 Triple Geek Ltd. All rights reserved.
  *
  */
 
 #pragma once
 
 #include "ofMain.h"
-
 #include "ofxTween.h"
+#include "ofxOsc.h"
 
 class ofxSphereCam : public ofCamera {
 public:
@@ -31,8 +30,9 @@ public:
     
     void randomPosM();
     void randomPosS();
-    void axis();
-            
+    void drawAxis();
+    void drawTarget();
+    
 private:
     
     ofxTween posTween;

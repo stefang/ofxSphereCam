@@ -19,16 +19,12 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-        ofxSphereCam sCam;
+    ofLight pointLight;
+    ofLight pointLight2;
+    ofLight pointLight3;
     
-        // Boxes stuff
+    vector<ofIcoSpherePrimitive> icoSpheres;
     
-        float movementSpeed;
-        float cloudSize;
-        float maxBoxSize;
-        float spacing;
-        int boxCount;
-    
-        ofCamera monitor;
+    ofxSphereCam sCam;
 
 };
