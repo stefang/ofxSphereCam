@@ -10,7 +10,6 @@
 
 #include "ofMain.h"
 #include "ofxTween.h"
-#include "ofxOsc.h"
 
 class ofxSphereCam : public ofCamera {
 public:
