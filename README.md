@@ -2,6 +2,8 @@ Originally a port to openFrameworks of my simple sphere camera class (https://gi
 
 It was originally designed to control an inward pointing camera with zenith and azimuth angles but it now supports the standard linear cartesian model for both position and lookAt target. You've can move (moveTo) the camera and target in a cartesian space and you can use the spherical coordinate space to rotate around the current lookAt (sphereTo).
 
+There is an optional addon (https://github.com/stefang/ofxSphereCamControl) that enables bi-directional control of this class over OSC from your iPad or iPhone.
+
 The movement is tweened so you set the target angles, positions and speed and it will make it's way there. You can use three methods:
 
 ### moveTo(ofVec3f(x,y,z), speed_in_ms);
