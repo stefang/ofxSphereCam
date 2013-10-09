@@ -75,24 +75,32 @@ void ofxSphereCam::update() {
     
     posTween.update();
     
+    ofVec3f mt;
+    
     if (spherical) {
         
         float phiRad = ofDegToRad(posTween.getTarget(1));
         float thetaRad = ofDegToRad(posTween.getTarget(2));
 
-        setPosition(
-            (posTween.getTarget(0) * sin(phiRad) * cos(thetaRad)) + lookedAt.x,
-            (posTween.getTarget(0) * sin(phiRad) * sin(thetaRad)) + lookedAt.y,
-            (posTween.getTarget(0) * cos(phiRad)) + lookedAt.z
-        );
+        mt = ofVec3f(
+                     (posTween.getTarget(0) * sin(phiRad) * cos(thetaRad)) + lookedAt.x,
+                     (posTween.getTarget(0) * sin(phiRad) * sin(thetaRad)) + lookedAt.y,
+                     (posTween.getTarget(0) * cos(phiRad)) + lookedAt.z
+                     );
+
+        
+        setPosition(mt);
     
     } else {
         
-        setPosition(
-            posTween.getTarget(0),
-            posTween.getTarget(1),
-            posTween.getTarget(2)
-        );
+        mt = ofVec3f(
+                     posTween.getTarget(0),
+                     posTween.getTarget(1),
+                     posTween.getTarget(2)
+                     );
+
+        
+        setPosition(mt);
 
     }
     
@@ -113,6 +121,7 @@ void ofxSphereCam::update() {
     }
     
     lookedAt=la;
+    movedTo=mt;
 
 }
 

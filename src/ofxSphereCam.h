@@ -23,6 +23,7 @@ public:
     void lookAtTo(ofVec3f& t, float d);
 
     ofVec3f lookedAt;
+    ofVec3f movedTo;
     
     bool handheld;
     float handNoiseAmt;
@@ -34,8 +35,6 @@ public:
     
 private:
     
-    ofxTween posTween;
-    ofxTween lookAtTween;
     ofxEasingQuad easingquad;
     
     float noiseCount;
@@ -46,5 +45,8 @@ private:
     float radius;
     float phi;
     float theta;
+    
+    ofxTween posTween;
+    ofxTween lookAtTween;
     
 };

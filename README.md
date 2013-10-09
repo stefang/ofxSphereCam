@@ -18,6 +18,10 @@ Spherical tweened rotation round current camera target over the specified time.
 
 The boolean 'handheld' set to true will add a small amount of 3d perlin noise to the target to simulate the slight wobble you get with hand held cameras.
 
-The axis() method called in the render loop will draw an XYZ axis at 0,0,0 cartesian to give you a starting point so you can tell if it's working. There's an example project to show you how I use it.
+The drawAxis() method called in draw() will draw an XYZ axis at 0,0,0 cartesian to give you a starting point so you can tell if it's working. 
+
+The drawTarget() method called in draw() will draw an XYZ axis at the lookAt cartesian coordinates to give you a clue as to what the cam is looking at.
+
+There's an example project to show you how I use it.
 
 Requires ofxTween (https://github.com/arturoc/ofxTween)

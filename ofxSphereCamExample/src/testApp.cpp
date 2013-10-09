@@ -94,6 +94,7 @@ void testApp::draw(){
     stringstream ss;
     ss << "(s): Spherical rotate around static look vector"<<endl;
     ss << "(m): Tween cam and look vector along straight line"<<endl;
+    ss << "(h): Handheld toggle"<<endl;
     
     ofDrawBitmapString(ss.str().c_str(), 20, 20);
 
@@ -108,6 +109,12 @@ void testApp::keyPressed(int key){
             break;
         case 'm':
             sCam.randomPosM();
+            break;
+        case 'h':
+            sCam.handheld = !sCam.handheld;
+            break;
+        case 'f':
+            ofToggleFullscreen();
             break;
     }
 
